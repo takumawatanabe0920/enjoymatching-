@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.send_signup_email(@user).deliver
-      redirect_to(@user, :notice => 'User created')
+      redirect_to root_path
     else
       render "index"
     end
