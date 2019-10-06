@@ -29,11 +29,6 @@ module Enjoymatching
 
     config.generators.template_engine = :slim
 
-    class ApplicationMailer < ActionMailer::Base
-      default from: 'takuma0920ozk@gmail.com'
-      layout 'mailer'
-    end
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

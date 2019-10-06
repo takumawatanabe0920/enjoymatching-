@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserNotifierMailer.send_signup_email(@user).deliver
+      UserMailer.send_signup_email(@user).deliver
       redirect_to(@user, :notice => 'User created')
     else
       render "index"
