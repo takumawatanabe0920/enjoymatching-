@@ -1,0 +1,21 @@
+= form_for(user) do |f|
+  .form-group
+    = f.label :email, 'メールアドレス(非公開)'
+    = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :name, '名前'
+    = f.text_field :name, class: 'form-control'
+  .form-group
+      = f.label :user_type, "生徒"
+      = f.radio_button :user_type, 1
+      = f.label :user_type, "先生"
+      = f.radio_button :user_type, 2
+  .form-group
+    = f.label :title, 'タイトル'
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :content, 'PRポイント120文字以上400文字以内'
+    = f.text_area :content, class: 'form-control'
+
+
+    = f.submit '送信', class: 'btn btn-success'

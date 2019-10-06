@@ -1,0 +1,14 @@
+- if users.any?
+  - users.each do |user|
+    hr
+    = user.name
+    - if user.user_type == 1
+      p student
+    - elsif user.user_type == 2
+      p teacher
+    = user.title
+      br
+    = user.content
+      br
+    = link_to "edit", edit_user_path(user)
+    = link_to "delete", user_path(user), :method => :delete, data: {confirm: "削除しますか？"}

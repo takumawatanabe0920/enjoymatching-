@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html
+  head
+    title Enjoymatching
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+
+
+  body
+    == render 'layouts/navbar'
+    .container
+      == render 'layouts/flash_messages'
+
+      == yield
+
+      == render 'layouts/footer'
