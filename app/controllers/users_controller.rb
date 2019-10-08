@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only:[:show, :edit, :update,:destroy]
+  before_save :send_email, only:[:create]
   def index
     @user = User.new
     @users = User.all
@@ -12,9 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
     if @user.save
-      UserMailer.send_signup_email(@user).deliver
       redirect_to root_path
     else
       render "index"
@@ -41,5 +40,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def send_email
+    @user = User.new(user_params)
+    UserMailer.send_signup_email(@user).deliver
   end
 end
