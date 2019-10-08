@@ -1,0 +1,8 @@
+ja:
+   activerecord:
+  users:
+    index:
+      edit: '編集'
+      delete: "削除"
+      student: "生徒"
+      teacher: "先生"

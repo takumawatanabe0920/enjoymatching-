@@ -1,14 +1,14 @@
 - if users.any?
   - users.each do |user|
     hr
-    = link_to "#{user.name}", user_path(user)
+    = user.name
     - if user.user_type == 1
-      p student
+      p 生徒
     - elsif user.user_type == 2
-      p teacher
+      p 先生
     = user.title
       br
     = user.content
       br
-    = link_to "edit", edit_user_path(user)
-    = link_to "delete", user_path(user), :method => :delete, data: {confirm: "削除しますか？"}
+    = link_to "編集", edit_user_path(user)
+    = link_to "削除", user_path(user), :method => :delete, data: {confirm: "削除しますか？"}
