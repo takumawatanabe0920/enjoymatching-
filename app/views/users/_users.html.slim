@@ -10,6 +10,7 @@
       br
     = user.content
       br
+    = link_to "興味ある", new_interest_path(user)
   - if current_user
     = link_to "編集", edit_user_path(current_user)
     = link_to "削除", user_path(current_user), :method => :delete, data: {confirm: "削除しますか？"}
