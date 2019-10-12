@@ -1,15 +1,16 @@
 class InterestsController < ApplicationController
   def new
-    @user = User.new
+    @interest = Interest.new
   end
 
   def create
-    @user  = User.new(interests_params)
-    UserMailer.send_email(@user).deliver
+    @interest  = current_user.interests.create(interests_params)
+    UserMailer.send_email(@interest).deliver
+    redirect_back(fallback_location: root_path)
   end
 
   private
   def interests_params
-    params.require(:user).permit(:name, :email, :phonenumber, :content)
+    params.require(:interest).permit(:name, :email, :phonenumber, :content, :to_id).merge(user_id: current_user.id)
   end
 end

@@ -9,7 +9,9 @@ class UserMailer < ApplicationMailer
     :subject => 'Thanks for signing up for our amazing app' )
   end
 
-  def send_email(user)
-    
+  def send_email(interest)
+    @interest = interest
+    mail( :to => @interest.to.email,
+    :from => @interest.email)
   end
 end
