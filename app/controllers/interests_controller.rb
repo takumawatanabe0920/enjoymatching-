@@ -1,5 +1,4 @@
 class InterestsController < ApplicationController
-  require "pry"
   def new
     @interest = Interest.new
     @user = User.find(params[:user_id])
