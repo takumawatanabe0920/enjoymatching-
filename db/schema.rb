@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 2019_10_12_070407) do
   enable_extension "plpgsql"
 
   create_table "interests", force: :cascade do |t|
-    t.bigint "to_id"
+    t.bigint "user_id"
     t.string "name"
     t.string "email"
     t.integer "phonenumber"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["to_id"], name: "index_interests_on_to_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,5 +37,5 @@ ActiveRecord::Schema.define(version: 2019_10_12_070407) do
     t.integer "phonenumber"
   end
 
-  add_foreign_key "interests", "users", column: "to_id"
+  add_foreign_key "interests", "users"
 end

@@ -1,5 +1,5 @@
 = form_for(@interest) do |f|
-  = f.hidden_field :to_id
+  = f.hidden_field :user_id, :value=> @user.id
   .form-group
     = f.label :email, 'メールアドレス(非公開)'
     = f.email_field :email, class: 'form-control'

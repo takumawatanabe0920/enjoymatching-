@@ -1,6 +1,8 @@
 class InterestsController < ApplicationController
+  require "pry"
   def new
     @interest = Interest.new
+    @user = User.find(params[:user_id])
   end
 
   def create
@@ -11,6 +13,6 @@ class InterestsController < ApplicationController
 
   private
   def interests_params
-    params.require(:interest).permit(:name, :email, :phonenumber, :content, :to_id)
+    params.require(:interest).permit(:name, :email, :phonenumber, :content, :user_id)
   end
 end

@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
 
   def send_email(interest)
     @interest = interest
-    mail( :to => @interest.to.email,
+    mail( :to => @interest.user.email,
     :from => @interest.email)
   end
 end

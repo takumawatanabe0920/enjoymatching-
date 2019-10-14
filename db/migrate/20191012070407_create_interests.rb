@@ -1,7 +1,7 @@
 class CreateInterests < ActiveRecord::Migration[5.2]
   def change
     create_table :interests do |t|
-      t.references :to, foreign_key: { to_table: :users }
+      t.references :user, foreign_key: true
       t.string :name
       t.string :email
       t.integer :phonenumber
